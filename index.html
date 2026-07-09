@@ -440,7 +440,7 @@
 
     .workspace-grid {
       display: grid;
-      grid-template-columns: 190px minmax(0, 1fr) 235px;
+      grid-template-columns: 190px minmax(0, 1fr);
       min-height: 470px;
     }
 
@@ -636,53 +636,6 @@
       color: var(--pink-700);
       font-size: 0.75rem;
       font-weight: 800;
-    }
-
-    .portrait-rail {
-      background: rgba(255, 247, 251, 0.86);
-      border-left: 1px solid var(--line);
-      display: grid;
-      gap: 12px;
-      padding: 16px;
-    }
-
-    .portrait {
-      border: 1px solid rgba(6, 37, 27, 0.12);
-      border-radius: 8px;
-      min-height: 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .portrait img {
-      height: 100%;
-      min-height: 135px;
-      object-fit: cover;
-      width: 100%;
-    }
-
-    .portrait.helena img {
-      object-position: 50% 32%;
-    }
-
-    .portrait.isadora img {
-      object-position: 52% 24%;
-    }
-
-    .portrait.carolina img {
-      object-position: 52% 22%;
-    }
-
-    .portrait figcaption {
-      background: linear-gradient(180deg, rgba(6, 37, 27, 0), rgba(6, 37, 27, 0.68));
-      bottom: 0;
-      color: var(--white);
-      font-size: 0.78rem;
-      font-weight: 800;
-      left: 0;
-      padding: 34px 10px 10px;
-      position: absolute;
-      right: 0;
     }
 
     .section {
@@ -990,17 +943,6 @@
         grid-template-columns: 170px minmax(0, 1fr);
       }
 
-      .portrait-rail {
-        border-left: 0;
-        border-top: 1px solid var(--line);
-        grid-column: 1 / -1;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .portrait img {
-        min-height: 160px;
-      }
-
       .split-intro,
       .system-layout {
         grid-template-columns: 1fr;
@@ -1091,14 +1033,6 @@
       .timeline-row span:last-child,
       .signal-row span {
         justify-self: start;
-      }
-
-      .portrait-rail {
-        grid-template-columns: 1fr;
-      }
-
-      .portrait img {
-        height: 260px;
       }
 
       .section {
@@ -1318,20 +1252,6 @@
               </div>
             </div>
 
-            <div class="portrait-rail" aria-label="Equipe fundadora" data-i18n-attr="aria-label:founding_team_label">
-              <figure class="portrait helena">
-                <img src="assets/Helena.jpg" alt="Helena Marillac de Azevedo Rondon, cofundadora do NextGen Sustentável" data-i18n-attr="alt:helena_alt">
-                <figcaption>Helena Marillac</figcaption>
-              </figure>
-              <figure class="portrait isadora">
-                <img src="assets/Isadora.jpg" alt="Isadora Meira Lima Gonçalves de Medeiros, cofundadora do NextGen Sustentável" data-i18n-attr="alt:isadora_alt">
-                <figcaption>Isadora Meira</figcaption>
-              </figure>
-              <figure class="portrait carolina">
-                <img src="assets/Carolina.jpg" alt="Carolina Damasio, cofundadora do NextGen Sustentável" data-i18n-attr="alt:carolina_alt">
-                <figcaption>Carolina Damasio</figcaption>
-              </figure>
-            </div>
           </div>
         </div>
       </div>
@@ -1556,10 +1476,6 @@
         learn: "Aprender",
         translate: "Traduzir",
         act: "Agir",
-        founding_team_label: "Equipe fundadora",
-        helena_alt: "Helena Marillac de Azevedo Rondon, cofundadora do NextGen Sustentável",
-        isadora_alt: "Isadora Meira Lima Gonçalves de Medeiros, cofundadora do NextGen Sustentável",
-        carolina_alt: "Carolina Damasio, cofundadora do NextGen Sustentável",
         about_kicker: "01 / Sobre nós",
         about_title: "ODS mais próximos de quem vai construir o futuro.",
         about_p1: "O NextGen Sustentável é uma iniciativa liderada por jovens dentro do guarda-chuva do UN MGCY, que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
@@ -1658,10 +1574,6 @@
         learn: "Learn",
         translate: "Translate",
         act: "Act",
-        founding_team_label: "Founding team",
-        helena_alt: "Helena Marillac de Azevedo Rondon, cofounder of NextGen Sustentável",
-        isadora_alt: "Isadora Meira Lima Gonçalves de Medeiros, cofounder of NextGen Sustentável",
-        carolina_alt: "Carolina Damasio, cofounder of NextGen Sustentável",
         about_kicker: "01 / About us",
         about_title: "SDGs closer to the people building the future.",
         about_p1: "NextGen Sustentável is a youth-led initiative under the UN MGCY umbrella that seeks to make the Sustainable Development Goals more accessible to children, adolescents, and young people.",
