@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.">
+  <title>NextGen Sustentável</title>
+  <style>
+    :root {
+      --green-950: #06251b;
+      --green-900: #073826;
+      --green-800: #0a4b32;
+      --green-600: #128255;
+      --green-500: #20a86b;
+      --green-100: #def8ea;
+      --green-50: #f1fff6;
+      --pink-700: #c82870;
+      --pink-500: #f05292;
+      --pink-100: #ffe7f1;
+      --white: #ffffff;
+      --paper: #fbfffc;
+      --line: rgba(6, 37, 27, 0.13);
+      --line-strong: rgba(6, 37, 27, 0.24);
+      --text: #092d20;
+      --muted: #5a7569;
+      --soft: rgba(255, 255, 255, 0.72);
+      --shadow: 0 28px 90px rgba(7, 56, 38, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+      letter-spacing: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        linear-gradient(90deg, rgba(6, 37, 27, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(6, 37, 27, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, #ffffff 0%, #f8fff9 34%, #fff7fb 71%, #ffffff 100%);
+      background-size: 56px 56px, 56px 56px, auto;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .skip-link {
+      background: var(--green-950);
+      color: var(--white);
+      left: 1rem;
+      padding: 0.75rem 1rem;
+      position: fixed;
+      top: -5rem;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .site-header {
+      left: 0;
+      padding: 16px;
+      position: fixed;
+      right: 0;
+      top: 0;
+      z-index: 40;
+    }
+
+    .nav-shell {
+      align-items: center;
+      backdrop-filter: blur(22px);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 18px 50px rgba(7, 56, 38, 0.08);
+      display: flex;
+      gap: 20px;
+      height: 58px;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1080px;
+      padding: 0 10px 0 14px;
+    }
+
+    .brand {
+      align-items: center;
+      display: inline-flex;
+      gap: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    .brand-logo {
+      align-items: center;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      display: inline-flex;
+      flex: 0 0 32px;
+      height: 32px;
+      justify-content: center;
+      overflow: hidden;
+      padding: 2px;
+      width: 32px;
+    }
+
+    .brand-logo img {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .hero-logo {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 18px 48px rgba(7, 56, 38, 0.08);
+      display: block;
+      margin-bottom: 18px;
+      padding: 10px;
+      width: 118px;
+    }
+
+    .hero-logo img {
+      height: auto;
+      width: 100%;
+    }
+
+    .nav-links {
+      align-items: center;
+      color: var(--muted);
+      display: flex;
+      font-size: 0.88rem;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      border-radius: 999px;
+      padding: 9px 12px;
+      transition: background 180ms ease, color 180ms ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background: var(--green-100);
+      color: var(--green-900);
+      outline: none;
+    }
+
+    .nav-actions {
+      align-items: center;
+      display: flex;
+      gap: 8px;
+    }
+
+    .language-toggle {
+      align-items: center;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+    }
+
+    .lang-option {
+      background: transparent;
+      border: 0;
+      border-radius: 999px;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      min-height: 30px;
+      padding: 0 9px;
+    }
+
+    .lang-option.is-active {
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .lang-option:focus-visible {
+      outline: 2px solid var(--pink-500);
+      outline-offset: 2px;
+    }
+
+    .nav-cta,
+    .button {
+      align-items: center;
+      border: 1px solid var(--green-950);
+      border-radius: 999px;
+      display: inline-flex;
+      font-size: 0.88rem;
+      font-weight: 700;
+      gap: 8px;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      transition: background 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta,
+    .button.primary {
+      background: var(--green-950);
+      color: var(--white);
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.7);
+      border-color: var(--line-strong);
+      color: var(--green-900);
+    }
+
+    .nav-cta:hover,
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button.primary:hover {
+      background: var(--pink-700);
+      border-color: var(--pink-700);
+    }
+
+    .button.secondary:hover {
+      background: var(--pink-100);
+      border-color: rgba(200, 40, 112, 0.25);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .page-shell {
+      margin: 0 auto;
+      max-width: 1180px;
+      padding: 0 24px;
+    }
+
+    .hero {
+      padding: 132px 0 74px;
+      position: relative;
+    }
+
+    .hero::before {
+      background: linear-gradient(90deg, rgba(32, 168, 107, 0.1), rgba(240, 82, 146, 0.13), rgba(255, 255, 255, 0));
+      content: "";
+      height: 1px;
+      left: 50%;
+      max-width: 1040px;
+      position: absolute;
+      top: 102px;
+      transform: translateX(-50%);
+      width: calc(100% - 48px);
+    }
+
+    .hero-content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      max-width: 860px;
+      text-align: center;
+    }
+
+    .eyebrow,
+    .section-kicker,
+    .micro-label {
+      align-items: center;
+      color: var(--green-800);
+      display: inline-flex;
+      font-size: 0.78rem;
+      font-weight: 800;
+      gap: 8px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 12px 36px rgba(7, 56, 38, 0.08);
+      padding: 8px 12px;
+    }
+
+    .status-dot {
+      background: var(--pink-500);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(240, 82, 146, 0.12);
+      height: 8px;
+      width: 8px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      color: var(--green-950);
+      font-size: 72px;
+      font-weight: 760;
+      line-height: 1.02;
+      margin-top: 26px;
+      max-width: 820px;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-top: 22px;
+      max-width: 720px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .founder-strip {
+      align-items: center;
+      color: var(--muted);
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .founder-avatars {
+      display: flex;
+    }
+
+    .founder-avatars img {
+      background: var(--white);
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      box-shadow: 0 10px 24px rgba(7, 56, 38, 0.12);
+      height: 42px;
+      object-fit: cover;
+      width: 42px;
+    }
+
+    .founder-avatars img + img {
+      margin-left: -10px;
+    }
+
+    .founder-avatars img:nth-child(1) {
+      object-position: 50% 28%;
+    }
+
+    .founder-avatars img:nth-child(2) {
+      object-position: 50% 22%;
+    }
+
+    .founder-avatars img:nth-child(3) {
+      object-position: 50% 18%;
+    }
+
+    .founder-strip span {
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .workspace {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      margin-top: 58px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .workspace-top {
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72));
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 0 16px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 7px;
+    }
+
+    .window-controls span {
+      background: var(--green-100);
+      border: 1px solid rgba(6, 37, 27, 0.1);
+      border-radius: 50%;
+      height: 10px;
+      width: 10px;
+    }
+
+    .window-controls span:nth-child(2) {
+      background: var(--pink-100);
+    }
+
+    .workspace-title {
+      color: var(--green-900);
+      font-size: 0.82rem;
+      font-weight: 750;
+    }
+
+    .workspace-state {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr) 235px;
+      min-height: 470px;
+    }
+
+    .workspace-sidebar {
+      background: rgba(241, 255, 246, 0.8);
+      border-right: 1px solid var(--line);
+      padding: 18px 14px;
+    }
+
+    .sidebar-group + .sidebar-group {
+      margin-top: 24px;
+    }
+
+    .sidebar-heading {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .sidebar-item {
+      align-items: center;
+      border-radius: 6px;
+      color: var(--green-900);
+      display: flex;
+      font-size: 0.84rem;
+      font-weight: 680;
+      gap: 9px;
+      min-height: 34px;
+      padding: 0 8px;
+    }
+
+    .sidebar-item.active {
+      background: var(--white);
+      box-shadow: 0 8px 20px rgba(7, 56, 38, 0.07);
+    }
+
+    .sidebar-item .tiny-dot {
+      background: var(--green-500);
+      border-radius: 50%;
+      flex: 0 0 7px;
+      height: 7px;
+      width: 7px;
+    }
+
+    .sidebar-item:nth-child(3) .tiny-dot,
+    .sidebar-item:nth-child(5) .tiny-dot {
+      background: var(--pink-500);
+    }
+
+    .workspace-main {
+      background:
+        linear-gradient(90deg, rgba(6, 37, 27, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(6, 37, 27, 0.035) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.66);
+      background-size: 42px 42px, 42px 42px, auto;
+      padding: 20px;
+    }
+
+    .board-header {
+      align-items: start;
+      display: flex;
+      gap: 16px;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .board-header h2 {
+      color: var(--green-950);
+      font-size: 1.45rem;
+      line-height: 1.15;
+    }
+
+    .board-header p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
+      max-width: 420px;
+    }
+
+    .pill {
+      align-items: center;
+      background: var(--pink-100);
+      border: 1px solid rgba(200, 40, 112, 0.2);
+      border-radius: 999px;
+      color: var(--pink-700);
+      display: inline-flex;
+      flex: 0 0 auto;
+      font-size: 0.76rem;
+      font-weight: 800;
+      min-height: 30px;
+      padding: 0 10px;
+      white-space: nowrap;
+    }
+
+    .mission-panel {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .mission-panel h3 {
+      color: var(--green-950);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .mission-panel p {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .metric-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 12px;
+    }
+
+    .metric {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      min-height: 120px;
+      padding: 14px;
+    }
+
+    .metric strong {
+      color: var(--green-950);
+      display: block;
+      font-size: 1.58rem;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 650;
+    }
+
+    .progress-track {
+      background: rgba(6, 37, 27, 0.08);
+      border-radius: 999px;
+      height: 6px;
+      margin-top: 18px;
+      overflow: hidden;
+    }
+
+    .progress-track i {
+      background: linear-gradient(90deg, var(--green-500), var(--pink-500));
+      border-radius: inherit;
+      display: block;
+      height: 100%;
+    }
+
+    .timeline {
+      background: rgba(255, 255, 255, 0.84);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-top: 12px;
+      overflow: hidden;
+    }
+
+    .timeline-row {
+      align-items: center;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 96px minmax(0, 1fr) auto;
+      min-height: 52px;
+      padding: 0 14px;
+    }
+
+    .timeline-row + .timeline-row {
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-row time {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .timeline-row b {
+      color: var(--green-950);
+      font-size: 0.9rem;
+    }
+
+    .timeline-row span:last-child {
+      color: var(--pink-700);
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .portrait-rail {
+      background: rgba(255, 247, 251, 0.86);
+      border-left: 1px solid var(--line);
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+    }
+
+    .portrait {
+      border: 1px solid rgba(6, 37, 27, 0.12);
+      border-radius: 8px;
+      min-height: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portrait img {
+      height: 100%;
+      min-height: 135px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .portrait.helena img {
+      object-position: 50% 32%;
+    }
+
+    .portrait.isadora img {
+      object-position: 52% 24%;
+    }
+
+    .portrait.carolina img {
+      object-position: 52% 22%;
+    }
+
+    .portrait figcaption {
+      background: linear-gradient(180deg, rgba(6, 37, 27, 0), rgba(6, 37, 27, 0.68));
+      bottom: 0;
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 800;
+      left: 0;
+      padding: 34px 10px 10px;
+      position: absolute;
+      right: 0;
+    }
+
+    .section {
+      padding: 88px 0;
+      position: relative;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--line);
+    }
+
+    .split-intro {
+      display: grid;
+      gap: 42px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      margin-top: 18px;
+    }
+
+    .split-intro h2,
+    .section-heading h2,
+    .cta h2 {
+      color: var(--green-950);
+      font-size: 48px;
+      font-weight: 740;
+      line-height: 1.08;
+    }
+
+    .copy-stack {
+      color: var(--muted);
+      display: grid;
+      font-size: 1.04rem;
+      gap: 18px;
+    }
+
+    .section-heading {
+      align-items: end;
+      display: flex;
+      gap: 28px;
+      justify-content: space-between;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      max-width: 620px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 370px;
+    }
+
+    .method-grid {
+      border-bottom: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .method-block {
+      min-height: 310px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .method-block + .method-block {
+      border-left: 1px solid var(--line);
+    }
+
+    .method-number {
+      color: var(--pink-700);
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 850;
+      margin-bottom: 56px;
+    }
+
+    .method-block h3 {
+      color: var(--green-950);
+      font-size: 1.35rem;
+      margin-bottom: 14px;
+    }
+
+    .method-block p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .system-layout {
+      align-items: start;
+      display: grid;
+      gap: 42px;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    }
+
+    .system-copy h2 {
+      color: var(--green-950);
+      font-size: 44px;
+      line-height: 1.1;
+      margin: 16px 0;
+    }
+
+    .system-copy p {
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 520px;
+    }
+
+    .signal-board {
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 24px 70px rgba(7, 56, 38, 0.1);
+      overflow: hidden;
+    }
+
+    .signal-row {
+      align-items: center;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 110px minmax(0, 1fr) 96px;
+      min-height: 78px;
+      padding: 0 18px;
+    }
+
+    .signal-row + .signal-row {
+      border-top: 1px solid var(--line);
+    }
+
+    .signal-row small {
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+
+    .signal-row b {
+      color: var(--green-950);
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .signal-row p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .signal-row span {
+      background: var(--green-100);
+      border: 1px solid rgba(18, 130, 85, 0.16);
+      border-radius: 999px;
+      color: var(--green-800);
+      font-size: 0.76rem;
+      font-weight: 850;
+      justify-self: end;
+      padding: 6px 10px;
+    }
+
+    .signal-row:nth-child(2) span {
+      background: var(--pink-100);
+      border-color: rgba(200, 40, 112, 0.18);
+      color: var(--pink-700);
+    }
+
+    .team-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .founder-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .founder-photo {
+      aspect-ratio: 4 / 4.4;
+      background: var(--green-50);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .founder-photo img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .founder-card.helena .founder-photo img {
+      object-position: 50% 24%;
+    }
+
+    .founder-card.isadora .founder-photo img {
+      object-position: 50% 22%;
+    }
+
+    .founder-card.carolina .founder-photo img {
+      object-position: 50% 18%;
+    }
+
+    .founder-copy {
+      padding: 20px;
+    }
+
+    .founder-copy h3 {
+      color: var(--green-950);
+      font-size: 1.18rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .role {
+      color: var(--pink-700);
+      font-size: 0.82rem;
+      font-weight: 850;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .founder-copy p:not(.role) {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .cta {
+      background:
+        linear-gradient(90deg, rgba(32, 168, 107, 0.13), rgba(240, 82, 146, 0.14)),
+        rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 34px;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::after {
+      background:
+        linear-gradient(90deg, rgba(6, 37, 27, 0.07) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(6, 37, 27, 0.07) 1px, transparent 1px);
+      background-size: 40px 40px;
+      content: "";
+      inset: 0;
+      opacity: 0.45;
+      position: absolute;
+    }
+
+    .cta > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta h2 {
+      margin-top: 16px;
+      max-width: 720px;
+    }
+
+    .cta p:not(.section-kicker) {
+      color: var(--muted);
+      font-size: 1.02rem;
+      margin-top: 18px;
+      max-width: 670px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      padding: 28px 0 38px;
+    }
+
+    .footer-row {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+    }
+
+    .footer-row p {
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--pink-700);
+    }
+
+    @media (max-width: 980px) {
+      .workspace-grid {
+        grid-template-columns: 170px minmax(0, 1fr);
+      }
+
+      .portrait-rail {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        grid-column: 1 / -1;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .portrait img {
+        min-height: 160px;
+      }
+
+      .split-intro,
+      .system-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .method-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .method-block + .method-block {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .method-block {
+        min-height: 230px;
+      }
+
+      .method-number {
+        margin-bottom: 34px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .site-header {
+        padding: 10px;
+      }
+
+      .nav-shell {
+        height: 54px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 106px 0 54px;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .workspace {
+        margin-top: 38px;
+      }
+
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .workspace-sidebar {
+        border-bottom: 1px solid var(--line);
+        border-right: 0;
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sidebar-group + .sidebar-group {
+        margin-top: 0;
+      }
+
+      .board-header,
+      .section-heading,
+      .footer-row {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-row,
+      .signal-row {
+        align-items: start;
+        grid-template-columns: 1fr;
+        padding: 14px;
+      }
+
+      .timeline-row span:last-child,
+      .signal-row span {
+        justify-self: start;
+      }
+
+      .portrait-rail {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait img {
+        height: 260px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .split-intro h2,
+      .section-heading h2,
+      .system-copy h2,
+      .cta h2 {
+        font-size: 36px;
+      }
+
+      .cta {
+        padding: 32px 22px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page-shell {
+        padding: 0 16px;
+      }
+
+      .brand span:last-child {
+        max-width: 168px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-actions {
+        gap: 0;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .workspace-top {
+        gap: 12px;
+      }
+
+      .workspace-state {
+        display: none;
+      }
+
+      .workspace-main {
+        padding: 14px;
+      }
+
+      .method-block {
+        padding: 22px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .board-header h2 {
+        font-size: 1.22rem;
+      }
+
+      .founder-strip {
+        align-items: center;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo" data-i18n="skip_link">Pular para o conteúdo</a>
+
+  <header class="site-header" aria-label="Navegação principal" data-i18n-attr="aria-label:main_nav_label">
+    <nav class="nav-shell">
+      <a class="brand" href="#inicio" aria-label="NextGen Sustentável" data-i18n-attr="aria-label:brand_label">
+        <span class="brand-logo" aria-hidden="true">
+          <img src="assets/logo.png" alt="">
+        </span>
+        <span>NextGen Sustentável</span>
+      </a>
+      <div class="nav-links" aria-label="Seções" data-i18n-attr="aria-label:sections_label">
+        <a href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a href="#metodo" data-i18n="nav_method">Método</a>
+        <a href="#fundadoras" data-i18n="nav_founders">Fundadoras</a>
+        <a href="#participar" data-i18n="nav_participate">Participar</a>
+      </div>
+      <div class="nav-actions">
+        <div class="language-toggle" role="group" aria-label="Selecionar idioma" data-i18n-attr="aria-label:language_label">
+          <button class="lang-option is-active" type="button" data-lang-option="pt" aria-pressed="true">PT</button>
+          <button class="lang-option" type="button" data-lang-option="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfw-noXVRzXfRg6nOIAWglTdbUgjukQ10jMIka65NpI1qmobA/viewform?pli=1" target="_blank" rel="noopener noreferrer" data-i18n="join_us">Junte-se a nós</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="page-shell">
+        <div class="hero-content">
+          <div class="hero-logo">
+            <img src="assets/logo.png" alt="Logo do NextGen Sustentável" data-i18n-attr="alt:logo_alt">
+          </div>
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero_eyebrow">Iniciativa liderada por jovens dentro do UN MGCY</span></p>
+          <h1 data-i18n="hero_title">NextGen Sustentável</h1>
+          <p class="hero-copy" data-i18n="hero_copy">
+            Uma iniciativa liderada por jovens que torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#sobre" data-i18n="hero_primary">Conheça o projeto</a>
+            <a class="button secondary" href="#fundadoras" data-i18n="hero_secondary">Ver fundadoras</a>
+          </div>
+          <div class="founder-strip" aria-label="Cofundadoras do NextGen Sustentável" data-i18n-attr="aria-label:founder_strip_label">
+            <div class="founder-avatars" aria-hidden="true">
+              <img src="assets/Helena.jpg" alt="">
+              <img src="assets/Isadora.jpg" alt="">
+              <img src="assets/Carolina.jpg" alt="">
+            </div>
+            <span data-i18n="founder_strip_text">Cofundado por Helena, Isadora e Carolina</span>
+          </div>
+        </div>
+
+        <div class="workspace" aria-label="Resumo visual do NextGen Sustentável" data-i18n-attr="aria-label:workspace_label">
+          <div class="workspace-top">
+            <div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p class="workspace-title" data-i18n="workspace_title">Sistema NextGen</p>
+            <p class="workspace-state" data-i18n="workspace_state">ODS acessíveis</p>
+          </div>
+
+          <div class="workspace-grid">
+            <aside class="workspace-sidebar" aria-label="Áreas do projeto" data-i18n-attr="aria-label:sidebar_label">
+              <div class="sidebar-group">
+                <p class="sidebar-heading" data-i18n="sidebar_focus">Foco</p>
+                <div class="sidebar-item active"><span class="tiny-dot"></span><span data-i18n="education">Educação</span></div>
+                <div class="sidebar-item"><span class="tiny-dot"></span><span data-i18n="youth">Juventude</span></div>
+                <div class="sidebar-item"><span class="tiny-dot"></span><span data-i18n="communities">Comunidades</span></div>
+              </div>
+              <div class="sidebar-group">
+                <p class="sidebar-heading" data-i18n="sidebar_agenda">Agenda</p>
+                <div class="sidebar-item"><span class="tiny-dot"></span><span data-i18n="sdgs">ODS</span></div>
+                <div class="sidebar-item"><span class="tiny-dot"></span><span data-i18n="citizenship">Cidadania</span></div>
+                <div class="sidebar-item"><span class="tiny-dot"></span><span data-i18n="impact">Impacto</span></div>
+              </div>
+            </aside>
+
+            <div class="workspace-main">
+              <div class="board-header">
+                <div>
+                  <h2 data-i18n="board_title">Educação climática, cidadania e participação jovem em um só fluxo.</h2>
+                  <p data-i18n="board_copy">Conteúdos práticos para estudantes da rede pública e comunidades em situação de vulnerabilidade.</p>
+                </div>
+                <span class="pill" data-i18n="active_project">Projeto ativo</span>
+              </div>
+
+              <div class="mission-panel">
+                <h3 data-i18n="mission_title">Missão</h3>
+                <p data-i18n="mission_copy">Transformar sustentabilidade em linguagem acessível, inspiradora e conectada à realidade de quem aprende.</p>
+              </div>
+
+              <div class="metric-grid">
+                <div class="metric">
+                  <strong>17</strong>
+                  <span data-i18n="metric_sdgs">ODS traduzidos em experiências de aprendizagem</span>
+                  <div class="progress-track" aria-hidden="true"><i style="width: 82%"></i></div>
+                </div>
+                <div class="metric">
+                  <strong>03</strong>
+                  <span data-i18n="metric_fronts">frentes: aprender, participar e agir</span>
+                  <div class="progress-track" aria-hidden="true"><i style="width: 64%"></i></div>
+                </div>
+                <div class="metric">
+                  <strong>01</strong>
+                  <span data-i18n="metric_future">futuro mais justo, inclusivo e sustentável</span>
+                  <div class="progress-track" aria-hidden="true"><i style="width: 74%"></i></div>
+                </div>
+              </div>
+
+              <div class="timeline" aria-label="Fluxo de atuação" data-i18n-attr="aria-label:timeline_label">
+                <div class="timeline-row">
+                  <time data-i18n="step_01">Etapa 01</time>
+                  <b data-i18n="timeline_01">Aproximar os ODS da escola e da comunidade</b>
+                  <span data-i18n="learn">Aprender</span>
+                </div>
+                <div class="timeline-row">
+                  <time data-i18n="step_02">Etapa 02</time>
+                  <b data-i18n="timeline_02">Conectar cidadania, sustentabilidade e direitos humanos</b>
+                  <span data-i18n="translate">Traduzir</span>
+                </div>
+                <div class="timeline-row">
+                  <time data-i18n="step_03">Etapa 03</time>
+                  <b data-i18n="timeline_03">Incentivar participação ativa de crianças e jovens</b>
+                  <span data-i18n="act">Agir</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="portrait-rail" aria-label="Equipe fundadora" data-i18n-attr="aria-label:founding_team_label">
+              <figure class="portrait helena">
+                <img src="assets/Helena.jpg" alt="Helena Marillac de Azevedo Rondon, cofundadora do NextGen Sustentável" data-i18n-attr="alt:helena_alt">
+                <figcaption>Helena Marillac</figcaption>
+              </figure>
+              <figure class="portrait isadora">
+                <img src="assets/Isadora.jpg" alt="Isadora Meira Lima Gonçalves de Medeiros, cofundadora do NextGen Sustentável" data-i18n-attr="alt:isadora_alt">
+                <figcaption>Isadora Meira</figcaption>
+              </figure>
+              <figure class="portrait carolina">
+                <img src="assets/Carolina.jpg" alt="Carolina Damasio, cofundadora do NextGen Sustentável" data-i18n-attr="alt:carolina_alt">
+                <figcaption>Carolina Damasio</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="page-shell">
+        <p class="section-kicker" data-i18n="about_kicker">01 / Sobre nós</p>
+        <div class="split-intro">
+          <h2 data-i18n="about_title">ODS mais próximos de quem vai construir o futuro.</h2>
+          <div class="copy-stack">
+            <p data-i18n="about_p1">
+              O NextGen Sustentável é uma iniciativa liderada por jovens dentro do guarda-chuva do UN MGCY, que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.
+            </p>
+            <p data-i18n="about_p2">
+              O projeto incentiva a participação ativa na construção de um futuro mais justo, inclusivo e sustentável, aproximando sustentabilidade, cidadania e ação comunitária.
+            </p>
+            <p data-i18n="about_p3">
+              A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="page-shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="method_kicker">02 / Método</p>
+            <h2 data-i18n="method_title">Educação que vira participação.</h2>
+          </div>
+          <p data-i18n="method_intro">O NextGen organiza temas complexos em experiências claras, conectadas à escola, ao território e à voz da juventude.</p>
+        </div>
+
+        <div class="method-grid">
+          <article class="method-block">
+            <span class="method-number">01</span>
+            <h3 data-i18n="method_01_title">Traduzir os ODS</h3>
+            <p data-i18n="method_01_copy">Transformamos a agenda global em linguagem prática, próxima da realidade de estudantes e comunidades.</p>
+          </article>
+          <article class="method-block">
+            <span class="method-number">02</span>
+            <h3 data-i18n="method_02_title">Ativar repertório</h3>
+            <p data-i18n="method_02_copy">Conectamos sustentabilidade, cidadania, direitos humanos, cultura e governança global em conversas acessíveis.</p>
+          </article>
+          <article class="method-block">
+            <span class="method-number">03</span>
+            <h3 data-i18n="method_03_title">Gerar ação</h3>
+            <p data-i18n="method_03_copy">Incentivamos crianças, adolescentes e jovens a reconhecerem seu papel em decisões locais, nacionais e internacionais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="agenda-title">
+      <div class="page-shell">
+        <div class="system-layout">
+          <div class="system-copy">
+            <p class="section-kicker" data-i18n="agenda_kicker">03 / Agenda</p>
+            <h2 id="agenda-title" data-i18n="agenda_title">Uma ponte entre aprendizagem e governança.</h2>
+            <p data-i18n="agenda_intro">
+              A proposta combina educação para os ODS, participação significativa da juventude e fortalecimento de processos decisórios com perspectiva do sul global.
+            </p>
+          </div>
+
+          <div class="signal-board" aria-label="Eixos de atuação" data-i18n-attr="aria-label:signals_label">
+            <div class="signal-row">
+              <small data-i18n="signal_learn">Aprender</small>
+              <div>
+                <b data-i18n="signal_01_title">Escolas e comunidades</b>
+                <p data-i18n="signal_01_copy">Materiais e dinâmicas pensados para estudantes da rede pública e territórios vulnerabilizados.</p>
+              </div>
+              <span data-i18n="signal_01_tag">Base</span>
+            </div>
+            <div class="signal-row">
+              <small data-i18n="signal_participate">Participar</small>
+              <div>
+                <b data-i18n="signal_02_title">Juventude em decisão</b>
+                <p data-i18n="signal_02_copy">Defesa da presença jovem em agendas nacionais e internacionais de desenvolvimento sustentável.</p>
+              </div>
+              <span data-i18n="signal_02_tag">Voz</span>
+            </div>
+            <div class="signal-row">
+              <small data-i18n="signal_transform">Transformar</small>
+              <div>
+                <b data-i18n="signal_03_title">Futuro justo e inclusivo</b>
+                <p data-i18n="signal_03_copy">Ações orientadas por impacto positivo para a sociedade, o meio ambiente e os direitos humanos.</p>
+              </div>
+              <span data-i18n="signal_03_tag">Ação</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fundadoras">
+      <div class="page-shell">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="founders_kicker">04 / Fundadoras</p>
+            <h2 data-i18n="founders_title">Jovens lideranças, atuação global.</h2>
+          </div>
+          <p data-i18n="founders_intro">O NextGen Sustentável é cofundado por jovens comprometidas com educação, sustentabilidade, direitos humanos e participação social.</p>
+        </div>
+
+        <div class="team-grid">
+          <article class="founder-card helena">
+            <div class="founder-photo">
+              <img src="assets/Helena.jpg" loading="lazy" alt="Retrato de Helena Marillac de Azevedo Rondon" data-i18n-attr="alt:helena_portrait_alt">
+            </div>
+            <div class="founder-copy">
+              <h3>Helena Marillac de Azevedo Rondon</h3>
+              <p class="role" data-i18n="cofounder_role">Cofundadora</p>
+              <p data-i18n="helena_bio">Estudante do curso técnico em Química e cofundadora do projeto NextGen. Movida pelo compromisso com a sustentabilidade e a preservação ambiental, dedica-se a desenvolver soluções de impacto positivo para a sociedade e para o meio ambiente.</p>
+            </div>
+          </article>
+
+          <article class="founder-card isadora">
+            <div class="founder-photo">
+              <img src="assets/Isadora.jpg" loading="lazy" alt="Retrato de Isadora Meira Lima Gonçalves de Medeiros" data-i18n-attr="alt:isadora_portrait_alt">
+            </div>
+            <div class="founder-copy">
+              <h3>Isadora Meira Lima Gonçalves de Medeiros</h3>
+              <p class="role" data-i18n="cofounder_role">Cofundadora</p>
+              <p data-i18n="isadora_bio">Formada em Direito, cofundadora da NextGen Sustentável e pesquisadora de Direito Internacional. Busca desenvolver uma carreira voltada à promoção do desenvolvimento sustentável, da proteção do patrimônio cultural e do fortalecimento dos direitos humanos na luta pela reforma da governança internacional, a partir da participação da juventude do sul global em processos decisórios.</p>
+            </div>
+          </article>
+
+          <article class="founder-card carolina">
+            <div class="founder-photo">
+              <img src="assets/Carolina.jpg" loading="lazy" alt="Retrato de Carolina Damasio" data-i18n-attr="alt:carolina_portrait_alt">
+            </div>
+            <div class="founder-copy">
+              <h3>Carolina Damasio</h3>
+              <p class="role" data-i18n="cofounder_role">Cofundadora</p>
+              <p data-i18n="carolina_bio">Estudante de Relações Internacionais, cofundadora do NextGen Sustentável e defensora da participação significativa da juventude na agenda do desenvolvimento sustentável. Atua com educação para os ODS, governança global e políticas públicas, representando jovens brasileiros em iniciativas e fóruns nacionais e internacionais.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="participar">
+      <div class="page-shell">
+        <div class="cta">
+          <p class="section-kicker" data-i18n="join_kicker">05 / Participe</p>
+          <h2 data-i18n="join_title">Leve os ODS para onde a juventude já está.</h2>
+          <p data-i18n="join_copy">
+            O NextGen Sustentável existe para aproximar a agenda global de estudantes, escolas, comunidades e espaços de decisão. A próxima etapa é ampliar conversas, parcerias e experiências de aprendizagem.
+          </p>
+          <div class="cta-actions">
+            <a class="button primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfw-noXVRzXfRg6nOIAWglTdbUgjukQ10jMIka65NpI1qmobA/viewform?pli=1" target="_blank" rel="noopener noreferrer" data-i18n="join_us">Junte-se a nós</a>
+            <a class="button secondary" href="#inicio" data-i18n="back_to_top">Voltar ao início</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-row">
+      <p data-i18n="footer_copy">© 2026 NextGen Sustentável. Iniciativa liderada por jovens dentro do UN MGCY.</p>
+      <div class="footer-links" aria-label="Links do rodapé" data-i18n-attr="aria-label:footer_links_label">
+        <a href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a href="#metodo" data-i18n="nav_method">Método</a>
+        <a href="#fundadoras" data-i18n="nav_founders">Fundadoras</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      pt: {
+        document_title: "NextGen Sustentável",
+        meta_description: "NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
+        skip_link: "Pular para o conteúdo",
+        main_nav_label: "Navegação principal",
+        brand_label: "NextGen Sustentável",
+        logo_alt: "Logo do NextGen Sustentável",
+        sections_label: "Seções",
+        language_label: "Selecionar idioma",
+        nav_about: "Sobre",
+        nav_method: "Método",
+        nav_founders: "Fundadoras",
+        nav_participate: "Participar",
+        join_us: "Junte-se a nós",
+        hero_eyebrow: "Iniciativa liderada por jovens dentro do UN MGCY",
+        hero_title: "NextGen Sustentável",
+        hero_copy: "Uma iniciativa liderada por jovens que torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
+        hero_primary: "Conheça o projeto",
+        hero_secondary: "Ver fundadoras",
+        founder_strip_label: "Cofundadoras do NextGen Sustentável",
+        founder_strip_text: "Cofundado por Helena, Isadora e Carolina",
+        workspace_label: "Resumo visual do NextGen Sustentável",
+        workspace_title: "Sistema NextGen",
+        workspace_state: "ODS acessíveis",
+        sidebar_label: "Áreas do projeto",
+        sidebar_focus: "Foco",
+        education: "Educação",
+        youth: "Juventude",
+        communities: "Comunidades",
+        sidebar_agenda: "Agenda",
+        sdgs: "ODS",
+        citizenship: "Cidadania",
+        impact: "Impacto",
+        board_title: "Educação climática, cidadania e participação jovem em um só fluxo.",
+        board_copy: "Conteúdos práticos para estudantes da rede pública e comunidades em situação de vulnerabilidade.",
+        active_project: "Projeto ativo",
+        mission_title: "Missão",
+        mission_copy: "Transformar sustentabilidade em linguagem acessível, inspiradora e conectada à realidade de quem aprende.",
+        metric_sdgs: "ODS traduzidos em experiências de aprendizagem",
+        metric_fronts: "frentes: aprender, participar e agir",
+        metric_future: "futuro mais justo, inclusivo e sustentável",
+        timeline_label: "Fluxo de atuação",
+        step_01: "Etapa 01",
+        step_02: "Etapa 02",
+        step_03: "Etapa 03",
+        timeline_01: "Aproximar os ODS da escola e da comunidade",
+        timeline_02: "Conectar cidadania, sustentabilidade e direitos humanos",
+        timeline_03: "Incentivar participação ativa de crianças e jovens",
+        learn: "Aprender",
+        translate: "Traduzir",
+        act: "Agir",
+        founding_team_label: "Equipe fundadora",
+        helena_alt: "Helena Marillac de Azevedo Rondon, cofundadora do NextGen Sustentável",
+        isadora_alt: "Isadora Meira Lima Gonçalves de Medeiros, cofundadora do NextGen Sustentável",
+        carolina_alt: "Carolina Damasio, cofundadora do NextGen Sustentável",
+        about_kicker: "01 / Sobre nós",
+        about_title: "ODS mais próximos de quem vai construir o futuro.",
+        about_p1: "O NextGen Sustentável é uma iniciativa liderada por jovens dentro do guarda-chuva do UN MGCY, que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
+        about_p2: "O projeto incentiva a participação ativa na construção de um futuro mais justo, inclusivo e sustentável, aproximando sustentabilidade, cidadania e ação comunitária.",
+        about_p3: "A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.",
+        method_kicker: "02 / Método",
+        method_title: "Educação que vira participação.",
+        method_intro: "O NextGen organiza temas complexos em experiências claras, conectadas à escola, ao território e à voz da juventude.",
+        method_01_title: "Traduzir os ODS",
+        method_01_copy: "Transformamos a agenda global em linguagem prática, próxima da realidade de estudantes e comunidades.",
+        method_02_title: "Ativar repertório",
+        method_02_copy: "Conectamos sustentabilidade, cidadania, direitos humanos, cultura e governança global em conversas acessíveis.",
+        method_03_title: "Gerar ação",
+        method_03_copy: "Incentivamos crianças, adolescentes e jovens a reconhecerem seu papel em decisões locais, nacionais e internacionais.",
+        agenda_kicker: "03 / Agenda",
+        agenda_title: "Uma ponte entre aprendizagem e governança.",
+        agenda_intro: "A proposta combina educação para os ODS, participação significativa da juventude e fortalecimento de processos decisórios com perspectiva do sul global.",
+        signals_label: "Eixos de atuação",
+        signal_learn: "Aprender",
+        signal_participate: "Participar",
+        signal_transform: "Transformar",
+        signal_01_title: "Escolas e comunidades",
+        signal_01_copy: "Materiais e dinâmicas pensados para estudantes da rede pública e territórios vulnerabilizados.",
+        signal_01_tag: "Base",
+        signal_02_title: "Juventude em decisão",
+        signal_02_copy: "Defesa da presença jovem em agendas nacionais e internacionais de desenvolvimento sustentável.",
+        signal_02_tag: "Voz",
+        signal_03_title: "Futuro justo e inclusivo",
+        signal_03_copy: "Ações orientadas por impacto positivo para a sociedade, o meio ambiente e os direitos humanos.",
+        signal_03_tag: "Ação",
+        founders_kicker: "04 / Fundadoras",
+        founders_title: "Jovens lideranças, atuação global.",
+        founders_intro: "O NextGen Sustentável é cofundado por jovens comprometidas com educação, sustentabilidade, direitos humanos e participação social.",
+        helena_portrait_alt: "Retrato de Helena Marillac de Azevedo Rondon",
+        isadora_portrait_alt: "Retrato de Isadora Meira Lima Gonçalves de Medeiros",
+        carolina_portrait_alt: "Retrato de Carolina Damasio",
+        cofounder_role: "Cofundadora",
+        helena_bio: "Estudante do curso técnico em Química e cofundadora do projeto NextGen. Movida pelo compromisso com a sustentabilidade e a preservação ambiental, dedica-se a desenvolver soluções de impacto positivo para a sociedade e para o meio ambiente.",
+        isadora_bio: "Formada em Direito, cofundadora da NextGen Sustentável e pesquisadora de Direito Internacional. Busca desenvolver uma carreira voltada à promoção do desenvolvimento sustentável, da proteção do patrimônio cultural e do fortalecimento dos direitos humanos na luta pela reforma da governança internacional, a partir da participação da juventude do sul global em processos decisórios.",
+        carolina_bio: "Estudante de Relações Internacionais, cofundadora do NextGen Sustentável e defensora da participação significativa da juventude na agenda do desenvolvimento sustentável. Atua com educação para os ODS, governança global e políticas públicas, representando jovens brasileiros em iniciativas e fóruns nacionais e internacionais.",
+        join_kicker: "05 / Participe",
+        join_title: "Leve os ODS para onde a juventude já está.",
+        join_copy: "O NextGen Sustentável existe para aproximar a agenda global de estudantes, escolas, comunidades e espaços de decisão. A próxima etapa é ampliar conversas, parcerias e experiências de aprendizagem.",
+        back_to_top: "Voltar ao início",
+        footer_copy: "© 2026 NextGen Sustentável. Iniciativa liderada por jovens dentro do UN MGCY.",
+        footer_links_label: "Links do rodapé"
+      },
+      en: {
+        document_title: "NextGen Sustentável",
+        meta_description: "NextGen Sustentável makes the Sustainable Development Goals more accessible to children, adolescents, and young people.",
+        skip_link: "Skip to content",
+        main_nav_label: "Main navigation",
+        brand_label: "NextGen Sustentável",
+        logo_alt: "NextGen Sustentável logo",
+        sections_label: "Sections",
+        language_label: "Select language",
+        nav_about: "About",
+        nav_method: "Method",
+        nav_founders: "Founders",
+        nav_participate: "Join",
+        join_us: "Join us",
+        hero_eyebrow: "Youth-led initiative under UN MGCY",
+        hero_title: "NextGen Sustentável",
+        hero_copy: "A youth-led initiative making the Sustainable Development Goals more accessible to children, adolescents, and young people.",
+        hero_primary: "Explore the project",
+        hero_secondary: "Meet the founders",
+        founder_strip_label: "NextGen Sustentável cofounders",
+        founder_strip_text: "Cofounded by Helena, Isadora, and Carolina",
+        workspace_label: "Visual summary of NextGen Sustentável",
+        workspace_title: "NextGen System",
+        workspace_state: "Accessible SDGs",
+        sidebar_label: "Project areas",
+        sidebar_focus: "Focus",
+        education: "Education",
+        youth: "Youth",
+        communities: "Communities",
+        sidebar_agenda: "Agenda",
+        sdgs: "SDGs",
+        citizenship: "Citizenship",
+        impact: "Impact",
+        board_title: "Climate education, citizenship, and youth participation in one flow.",
+        board_copy: "Practical content for public school students and communities in vulnerable situations.",
+        active_project: "Active project",
+        mission_title: "Mission",
+        mission_copy: "Turn sustainability into accessible, inspiring language connected to learners' realities.",
+        metric_sdgs: "SDGs translated into learning experiences",
+        metric_fronts: "fronts: learn, participate, and act",
+        metric_future: "a fairer, more inclusive, and sustainable future",
+        timeline_label: "Action flow",
+        step_01: "Step 01",
+        step_02: "Step 02",
+        step_03: "Step 03",
+        timeline_01: "Bring the SDGs closer to schools and communities",
+        timeline_02: "Connect citizenship, sustainability, and human rights",
+        timeline_03: "Encourage active participation by children and youth",
+        learn: "Learn",
+        translate: "Translate",
+        act: "Act",
+        founding_team_label: "Founding team",
+        helena_alt: "Helena Marillac de Azevedo Rondon, cofounder of NextGen Sustentável",
+        isadora_alt: "Isadora Meira Lima Gonçalves de Medeiros, cofounder of NextGen Sustentável",
+        carolina_alt: "Carolina Damasio, cofounder of NextGen Sustentável",
+        about_kicker: "01 / About us",
+        about_title: "SDGs closer to the people building the future.",
+        about_p1: "NextGen Sustentável is a youth-led initiative under the UN MGCY umbrella that seeks to make the Sustainable Development Goals more accessible to children, adolescents, and young people.",
+        about_p2: "The project encourages active participation in building a fairer, more inclusive, and sustainable future by connecting sustainability, citizenship, and community action.",
+        about_p3: "The initiative was created with the mission of transforming education on sustainability and citizenship into something practical, inspiring, and accessible, especially for public school students and communities in vulnerable situations.",
+        method_kicker: "02 / Method",
+        method_title: "Education that becomes participation.",
+        method_intro: "NextGen organizes complex themes into clear experiences connected to school, territory, and youth voices.",
+        method_01_title: "Translate the SDGs",
+        method_01_copy: "We turn the global agenda into practical language close to the reality of students and communities.",
+        method_02_title: "Activate knowledge",
+        method_02_copy: "We connect sustainability, citizenship, human rights, culture, and global governance through accessible conversations.",
+        method_03_title: "Generate action",
+        method_03_copy: "We encourage children, adolescents, and young people to recognize their role in local, national, and international decisions.",
+        agenda_kicker: "03 / Agenda",
+        agenda_title: "A bridge between learning and governance.",
+        agenda_intro: "The proposal combines SDG education, meaningful youth participation, and stronger decision-making processes from a Global South perspective.",
+        signals_label: "Action pillars",
+        signal_learn: "Learn",
+        signal_participate: "Participate",
+        signal_transform: "Transform",
+        signal_01_title: "Schools and communities",
+        signal_01_copy: "Materials and dynamics designed for public school students and vulnerable territories.",
+        signal_01_tag: "Base",
+        signal_02_title: "Youth in decision-making",
+        signal_02_copy: "Advocacy for young people in national and international sustainable development agendas.",
+        signal_02_tag: "Voice",
+        signal_03_title: "Fair and inclusive future",
+        signal_03_copy: "Actions guided by positive impact for society, the environment, and human rights.",
+        signal_03_tag: "Action",
+        founders_kicker: "04 / Founders",
+        founders_title: "Young leaders, global action.",
+        founders_intro: "NextGen Sustentável is cofounded by young people committed to education, sustainability, human rights, and social participation.",
+        helena_portrait_alt: "Portrait of Helena Marillac de Azevedo Rondon",
+        isadora_portrait_alt: "Portrait of Isadora Meira Lima Gonçalves de Medeiros",
+        carolina_portrait_alt: "Portrait of Carolina Damasio",
+        cofounder_role: "Cofounder",
+        helena_bio: "A technical Chemistry student and cofounder of the NextGen project. Driven by a commitment to sustainability and environmental preservation, she is dedicated to developing solutions with positive impact for society and the environment.",
+        isadora_bio: "A Law graduate, cofounder of NextGen Sustentável, and International Law researcher. She seeks to build a career focused on promoting sustainable development, protecting cultural heritage, and strengthening human rights in the fight to reform international governance through the participation of Global South youth in decision-making processes.",
+        carolina_bio: "An International Relations student, cofounder of NextGen Sustentável, and advocate for meaningful youth participation in the sustainable development agenda. She works with SDG education, global governance, and public policy, representing Brazilian youth in national and international initiatives and forums.",
+        join_kicker: "05 / Join",
+        join_title: "Bring the SDGs to where youth already are.",
+        join_copy: "NextGen Sustentável exists to bring the global agenda closer to students, schools, communities, and decision-making spaces. The next step is to expand conversations, partnerships, and learning experiences.",
+        back_to_top: "Back to top",
+        footer_copy: "© 2026 NextGen Sustentável. Youth-led initiative under UN MGCY.",
+        footer_links_label: "Footer links"
+      }
+    };
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const languageButtons = document.querySelectorAll("[data-lang-option]");
+
+    function applyLanguage(lang) {
+      const dictionary = translations[lang] || translations.pt;
+
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+      document.title = dictionary.document_title;
+      if (metaDescription) {
+        metaDescription.setAttribute("content", dictionary.meta_description);
+      }
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.getAttribute("data-i18n");
+        if (dictionary[key]) {
+          element.textContent = dictionary[key];
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+        const pairs = element.getAttribute("data-i18n-attr").split(",");
+        pairs.forEach((pair) => {
+          const [attribute, key] = pair.split(":").map((part) => part.trim());
+          if (attribute && key && dictionary[key]) {
+            element.setAttribute(attribute, dictionary[key]);
+          }
+        });
+      });
+
+      languageButtons.forEach((button) => {
+        const isActive = button.getAttribute("data-lang-option") === lang;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+
+      try {
+        localStorage.setItem("nextgen-language", lang);
+      } catch (error) {
+        // Language switching still works when storage is unavailable.
+      }
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        applyLanguage(button.getAttribute("data-lang-option"));
+      });
+    });
+
+    let savedLanguage = null;
+    try {
+      savedLanguage = localStorage.getItem("nextgen-language");
+    } catch (error) {
+      savedLanguage = null;
+    }
+
+    const requestedLanguage = new URLSearchParams(window.location.search).get("lang");
+    const initialLanguage = requestedLanguage === "en" || requestedLanguage === "pt"
+      ? requestedLanguage
+      : savedLanguage === "en"
+        ? "en"
+        : "pt";
+
+    applyLanguage(initialLanguage);
+  </script>
+</body>
+</html>
