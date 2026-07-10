@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.">
+  <meta name="description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens." data-i18n-attr="content:meta_description">
+  <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NextGen Sustentável">
+  <meta property="og:locale" content="pt_BR" data-i18n-attr="content:og_locale">
+  <meta property="og:locale:alternate" content="en_US" data-i18n-attr="content:og_locale_alternate">
   <meta property="og:url" content="https://nextgensustentavel.org/">
-  <meta property="og:title" content="NextGen Sustentável">
-  <meta property="og:description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.">
+  <meta property="og:title" content="NextGen Sustentável" data-i18n-attr="content:document_title">
+  <meta property="og:description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens." data-i18n-attr="content:meta_description">
   <meta property="og:image" content="https://nextgensustentavel.org/assets/logo.png">
+  <meta property="og:image:alt" content="Logo do NextGen Sustentável" data-i18n-attr="content:logo_alt">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NextGen Sustentável">
-  <meta name="twitter:description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.">
+  <meta name="twitter:title" content="NextGen Sustentável" data-i18n-attr="content:document_title">
+  <meta name="twitter:description" content="NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens." data-i18n-attr="content:meta_description">
   <meta name="twitter:image" content="https://nextgensustentavel.org/assets/logo.png">
+  <meta name="twitter:image:alt" content="Logo do NextGen Sustentável" data-i18n-attr="content:logo_alt">
   <title>NextGen Sustentável</title>
+  <link rel="canonical" href="https://nextgensustentavel.org/">
   <link rel="icon" type="image/png" href="assets/logo.png" sizes="any">
   <link rel="apple-touch-icon" href="assets/logo.png">
   <style>
@@ -679,6 +686,30 @@
       gap: 18px;
     }
 
+    .ods-palette {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 8px 0 0;
+      overflow: hidden;
+    }
+
+    .ods-palette img {
+      aspect-ratio: 1747 / 1240;
+      height: auto;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .ods-palette figcaption {
+      border-top: 1px solid var(--line);
+      color: var(--green-800);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 10px 14px;
+      text-transform: uppercase;
+    }
+
     .section-heading {
       align-items: end;
       display: flex;
@@ -1281,6 +1312,10 @@
             <p data-i18n="about_p3">
               A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.
             </p>
+            <figure class="ods-palette">
+              <img src="assets/Palette.png" loading="lazy" alt="Roda colorida dos Objetivos de Desenvolvimento Sustentável" data-i18n-attr="alt:ods_palette_alt">
+              <figcaption data-i18n="ods_palette_caption">Os 17 ODS como guia visual</figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -1437,6 +1472,8 @@
       pt: {
         document_title: "NextGen Sustentável",
         meta_description: "NextGen Sustentável torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
+        og_locale: "pt_BR",
+        og_locale_alternate: "en_US",
         skip_link: "Pular para o conteúdo",
         main_nav_label: "Navegação principal",
         brand_label: "NextGen Sustentável",
@@ -1490,6 +1527,8 @@
         about_p1: "O NextGen Sustentável é uma iniciativa liderada por jovens dentro do guarda-chuva do UN MGCY, que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
         about_p2: "O projeto incentiva a participação ativa na construção de um futuro mais justo, inclusivo e sustentável, aproximando sustentabilidade, cidadania e ação comunitária.",
         about_p3: "A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.",
+        ods_palette_alt: "Roda colorida dos Objetivos de Desenvolvimento Sustentável",
+        ods_palette_caption: "Os 17 ODS como guia visual",
         method_kicker: "02 / Método",
         method_title: "Educação que vira participação.",
         method_intro: "O NextGen organiza temas complexos em experiências claras, conectadas à escola, ao território e à voz da juventude.",
@@ -1535,6 +1574,8 @@
       en: {
         document_title: "NextGen Sustentável",
         meta_description: "NextGen Sustentável makes the Sustainable Development Goals more accessible to children, adolescents, and young people.",
+        og_locale: "en_US",
+        og_locale_alternate: "pt_BR",
         skip_link: "Skip to content",
         main_nav_label: "Main navigation",
         brand_label: "NextGen Sustentável",
@@ -1588,6 +1629,8 @@
         about_p1: "NextGen Sustentável is a youth-led initiative under the UN MGCY umbrella that seeks to make the Sustainable Development Goals more accessible to children, adolescents, and young people.",
         about_p2: "The project encourages active participation in building a fairer, more inclusive, and sustainable future by connecting sustainability, citizenship, and community action.",
         about_p3: "The initiative was created with the mission of transforming education on sustainability and citizenship into something practical, inspiring, and accessible, especially for public school students and communities in vulnerable situations.",
+        ods_palette_alt: "Color wheel of the Sustainable Development Goals",
+        ods_palette_caption: "The 17 SDGs as a visual guide",
         method_kicker: "02 / Method",
         method_title: "Education that becomes participation.",
         method_intro: "NextGen organizes complex themes into clear experiences connected to school, territory, and youth voices.",
