@@ -400,6 +400,10 @@
       object-position: 50% 18%;
     }
 
+    .founder-avatars img:nth-child(4) {
+      object-position: 50% 24%;
+    }
+
     .founder-strip span {
       font-size: 0.84rem;
       font-weight: 700;
@@ -843,7 +847,7 @@
     .team-grid {
       display: grid;
       gap: 18px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .founder-card {
@@ -876,6 +880,10 @@
 
     .founder-card.carolina .founder-photo img {
       object-position: 50% 18%;
+    }
+
+    .founder-card.ana .founder-photo img {
+      object-position: 50% 24%;
     }
 
     .founder-copy {
@@ -1213,8 +1221,9 @@
               <img src="assets/Helena.jpg" alt="">
               <img src="assets/Isadora.jpg" alt="">
               <img src="assets/Carolina.jpg" alt="">
+              <img src="assets/Ana.jpg" alt="">
             </div>
-            <span data-i18n="founder_strip_text">Cofundado por Helena, Isadora e Carolina</span>
+            <span data-i18n="founder_strip_text">Cofundado por Helena, Isadora, Carolina e Ana</span>
           </div>
         </div>
 
@@ -1435,6 +1444,17 @@
               <p data-i18n="carolina_bio">Estudante de Relações Internacionais, cofundadora do NextGen Sustentável e defensora da participação significativa da juventude na agenda do desenvolvimento sustentável. Atua com educação para os ODS, governança global e políticas públicas, representando jovens brasileiros em iniciativas e fóruns nacionais e internacionais.</p>
             </div>
           </article>
+
+          <article class="founder-card ana">
+            <div class="founder-photo">
+              <img src="assets/Ana.jpg" loading="lazy" alt="Retrato de Ana Terra Duarte" data-i18n-attr="alt:ana_portrait_alt">
+            </div>
+            <div class="founder-copy">
+              <h3>Ana Terra Duarte</h3>
+              <p class="role" data-i18n="cofounder_role">Cofundadora</p>
+              <p data-i18n="ana_bio">Ana Terra Duarte é estudante do ensino médio do curso técnico em Química e cofundadora do projeto NextGen Sustentável. Comprometida com o aprendizado e com a busca por soluções que contribuam para a sociedade, participa de projetos acadêmicos e voluntários que fortalecem seu interesse por inovação, sustentabilidade e desenvolvimento social. Acredita que a educação, a dedicação e a colaboração são fundamentais para construir um futuro mais consciente e transformador.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1491,7 +1511,7 @@
         hero_primary: "Conheça o projeto",
         hero_secondary: "Ver fundadoras",
         founder_strip_label: "Cofundadoras do NextGen Sustentável",
-        founder_strip_text: "Cofundado por Helena, Isadora e Carolina",
+        founder_strip_text: "Cofundado por Helena, Isadora, Carolina e Ana",
         workspace_label: "Resumo visual do NextGen Sustentável",
         workspace_title: "Sistema NextGen",
         workspace_state: "ODS acessíveis",
@@ -1560,10 +1580,12 @@
         helena_portrait_alt: "Retrato de Helena Marillac de Azevedo Rondon",
         isadora_portrait_alt: "Retrato de Isadora Meira Lima Gonçalves de Medeiros",
         carolina_portrait_alt: "Retrato de Carolina Damasio",
+        ana_portrait_alt: "Retrato de Ana Terra Duarte",
         cofounder_role: "Cofundadora",
         helena_bio: "Estudante do curso técnico em Química e cofundadora do projeto NextGen. Movida pelo compromisso com a sustentabilidade e a preservação ambiental, dedica-se a desenvolver soluções de impacto positivo para a sociedade e para o meio ambiente.",
         isadora_bio: "Formada em Direito, cofundadora da NextGen Sustentável e pesquisadora de Direito Internacional. Busca desenvolver uma carreira voltada à promoção do desenvolvimento sustentável, da proteção do patrimônio cultural e do fortalecimento dos direitos humanos na luta pela reforma da governança internacional, a partir da participação da juventude do sul global em processos decisórios.",
         carolina_bio: "Estudante de Relações Internacionais, cofundadora do NextGen Sustentável e defensora da participação significativa da juventude na agenda do desenvolvimento sustentável. Atua com educação para os ODS, governança global e políticas públicas, representando jovens brasileiros em iniciativas e fóruns nacionais e internacionais.",
+        ana_bio: "Ana Terra Duarte é estudante do ensino médio do curso técnico em Química e cofundadora do projeto NextGen Sustentável. Comprometida com o aprendizado e com a busca por soluções que contribuam para a sociedade, participa de projetos acadêmicos e voluntários que fortalecem seu interesse por inovação, sustentabilidade e desenvolvimento social. Acredita que a educação, a dedicação e a colaboração são fundamentais para construir um futuro mais consciente e transformador.",
         join_kicker: "05 / Participe",
         join_title: "Leve os ODS para onde a juventude já está.",
         join_copy: "O NextGen Sustentável existe para aproximar a agenda global de estudantes, escolas, comunidades e espaços de decisão. A próxima etapa é ampliar conversas, parcerias e experiências de aprendizagem.",
@@ -1593,7 +1615,7 @@
         hero_primary: "Explore the project",
         hero_secondary: "Meet the founders",
         founder_strip_label: "NextGen Sustentável cofounders",
-        founder_strip_text: "Cofounded by Helena, Isadora, and Carolina",
+        founder_strip_text: "Cofounded by Helena, Isadora, Carolina, and Ana",
         workspace_label: "Visual summary of NextGen Sustentável",
         workspace_title: "NextGen System",
         workspace_state: "Accessible SDGs",
@@ -1662,10 +1684,12 @@
         helena_portrait_alt: "Portrait of Helena Marillac de Azevedo Rondon",
         isadora_portrait_alt: "Portrait of Isadora Meira Lima Gonçalves de Medeiros",
         carolina_portrait_alt: "Portrait of Carolina Damasio",
+        ana_portrait_alt: "Portrait of Ana Terra Duarte",
         cofounder_role: "Cofounder",
         helena_bio: "A technical Chemistry student and cofounder of the NextGen project. Driven by a commitment to sustainability and environmental preservation, she is dedicated to developing solutions with positive impact for society and the environment.",
         isadora_bio: "A Law graduate, cofounder of NextGen Sustentável, and International Law researcher. She seeks to build a career focused on promoting sustainable development, protecting cultural heritage, and strengthening human rights in the fight to reform international governance through the participation of Global South youth in decision-making processes.",
         carolina_bio: "An International Relations student, cofounder of NextGen Sustentável, and advocate for meaningful youth participation in the sustainable development agenda. She works with SDG education, global governance, and public policy, representing Brazilian youth in national and international initiatives and forums.",
+        ana_bio: "Ana Terra Duarte is a high school student in a technical Chemistry program and a cofounder of the NextGen Sustentável project. Committed to learning and finding solutions that benefit society, she takes part in academic and volunteer projects that strengthen her interest in innovation, sustainability, and social development. She believes that education, dedication, and collaboration are essential to building a more conscious and transformative future.",
         join_kicker: "05 / Join",
         join_title: "Bring the SDGs to where youth already are.",
         join_copy: "NextGen Sustentável exists to bring the global agenda closer to students, schools, communities, and decision-making spaces. The next step is to expand conversations, partnerships, and learning experiences.",
