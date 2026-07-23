@@ -1,3 +1,8 @@
+---
+import SiteFooter from "../components/SiteFooter.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+---
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -21,9 +26,9 @@
   <meta name="twitter:image:alt" content="Logo do NextGen Sustentável" data-i18n-attr="content:logo_alt">
   <title>NextGen Sustentável</title>
   <link rel="canonical" href="https://nextgensustentavel.org/">
-  <link rel="icon" type="image/png" href="assets/logo.png" sizes="any">
-  <link rel="apple-touch-icon" href="assets/logo.png">
-  <style>
+  <link rel="icon" type="image/png" href="/assets/logo.png" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <style is:global>
     :root {
       --green-950: #06251b;
       --green-900: #073826;
@@ -399,11 +404,11 @@
     }
 
     .founder-avatars img:nth-child(3) {
-      object-position: 50% 18%;
+      object-position: 50% 48%;
     }
 
     .founder-avatars img:nth-child(4) {
-      object-position: 50% 24%;
+      object-position: 50% 50%;
     }
 
     .founder-strip span {
@@ -1120,32 +1125,14 @@
 <body>
   <a class="skip-link" href="#conteudo" data-i18n="skip_link">Pular para o conteúdo</a>
 
-  <header class="site-header" aria-label="Navegação principal" data-i18n-attr="aria-label:main_nav_label">
-    <nav class="nav-shell">
-      <a class="brand" href="#inicio" aria-label="NextGen Sustentável" data-i18n-attr="aria-label:brand_label">
-        <span class="brand-logo" aria-hidden="true">
-          <img src="assets/logo.png" width="1254" height="1254" alt="">
-        </span>
-        <span>NextGen Sustentável</span>
-      </a>
-      <div class="nav-links" aria-label="Seções" data-i18n-attr="aria-label:sections_label">
-        <a href="#sobre" data-i18n="nav_about">Sobre</a>
-        <a href="#metodo" data-i18n="nav_method">Método</a>
-        <a href="#fundadoras" data-i18n="nav_founders">Fundadoras</a>
-      </div>
-      <div class="language-toggle" role="group" aria-label="Selecionar idioma" data-i18n-attr="aria-label:language_label">
-        <button class="lang-option is-active" type="button" data-lang-option="pt" aria-pressed="true">PT</button>
-        <button class="lang-option" type="button" data-lang-option="en" aria-pressed="false">EN</button>
-      </div>
-    </nav>
-  </header>
+  <SiteHeader />
 
   <main id="conteudo">
     <section class="hero" id="inicio">
       <div class="page-shell">
         <div class="hero-content">
           <div class="hero-logo">
-            <img src="assets/logo.png" width="1254" height="1254" alt="Logo do NextGen Sustentável" data-i18n-attr="alt:logo_alt">
+            <img src="/assets/logo.png" width="1254" height="1254" alt="Logo do NextGen Sustentável" data-i18n-attr="alt:logo_alt">
           </div>
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero_eyebrow">Iniciativa liderada por jovens para democratização do ensino sobre os ODS, liderança jovem e cidadania</span></p>
           <h1 data-i18n="hero_title">NextGen Sustentável</h1>
@@ -1158,10 +1145,10 @@
           </div>
           <div class="founder-strip" aria-label="Cofundadoras do NextGen Sustentável" data-i18n-attr="aria-label:founder_strip_label">
             <div class="founder-avatars" aria-hidden="true">
-              <img src="assets/Helena.jpg" width="1546" height="1600" decoding="async" alt="">
-              <img src="assets/Isadora.jpg" width="1066" height="1600" decoding="async" alt="">
-              <img src="assets/Carolina.jpg" width="2160" height="2880" decoding="async" alt="">
-              <img src="assets/Ana.jpg" width="1170" height="754" decoding="async" alt="">
+              <img src="/assets/Helena.jpg" width="1546" height="1600" decoding="sync" alt="">
+              <img src="/assets/Isadora.jpg" width="1066" height="1600" decoding="sync" alt="">
+              <img src="/assets/Carolina.jpg" width="2160" height="2880" decoding="sync" alt="">
+              <img src="/assets/Ana.jpg" width="1170" height="754" decoding="sync" alt="">
             </div>
             <span data-i18n="founder_strip_text">Cofundado por Helena, Isadora, Carolina e Ana</span>
           </div>
@@ -1262,7 +1249,7 @@
               A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.
             </p>
             <figure class="ods-palette">
-              <img src="assets/Palette.png" width="1747" height="1240" loading="lazy" decoding="async" alt="Roda colorida dos Objetivos de Desenvolvimento Sustentável" data-i18n-attr="alt:ods_palette_alt">
+              <img src="/assets/Palette.png" width="1747" height="1240" loading="lazy" decoding="async" alt="Roda colorida dos Objetivos de Desenvolvimento Sustentável" data-i18n-attr="alt:ods_palette_alt">
               <figcaption data-i18n="ods_palette_caption">Os 17 ODS como guia visual</figcaption>
             </figure>
           </div>
@@ -1354,7 +1341,7 @@
         <div class="team-grid">
           <article class="founder-card helena">
             <div class="founder-photo">
-              <img src="assets/Helena.jpg" width="1546" height="1600" loading="lazy" decoding="async" alt="Retrato de Helena Marillac de Azevedo Rondon" data-i18n-attr="alt:helena_portrait_alt">
+              <img src="/assets/Helena.jpg" width="1546" height="1600" loading="lazy" decoding="async" alt="Retrato de Helena Marillac de Azevedo Rondon" data-i18n-attr="alt:helena_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Helena Marillac de Azevedo Rondon</h3>
@@ -1365,7 +1352,7 @@
 
           <article class="founder-card isadora">
             <div class="founder-photo">
-              <img src="assets/Isadora.jpg" width="1066" height="1600" loading="lazy" decoding="async" alt="Retrato de Isadora Meira Lima Gonçalves de Medeiros" data-i18n-attr="alt:isadora_portrait_alt">
+              <img src="/assets/Isadora.jpg" width="1066" height="1600" loading="lazy" decoding="async" alt="Retrato de Isadora Meira Lima Gonçalves de Medeiros" data-i18n-attr="alt:isadora_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Isadora Meira Lima Gonçalves de Medeiros</h3>
@@ -1376,7 +1363,7 @@
 
           <article class="founder-card carolina">
             <div class="founder-photo">
-              <img src="assets/Carolina.jpg" width="2160" height="2880" loading="lazy" decoding="async" alt="Retrato de Carolina Damasio" data-i18n-attr="alt:carolina_portrait_alt">
+              <img src="/assets/Carolina.jpg" width="2160" height="2880" loading="lazy" decoding="async" alt="Retrato de Carolina Damasio" data-i18n-attr="alt:carolina_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Carolina Damasio</h3>
@@ -1387,7 +1374,7 @@
 
           <article class="founder-card ana">
             <div class="founder-photo">
-              <img src="assets/Ana.jpg" width="1170" height="754" loading="lazy" decoding="async" alt="Retrato de Ana Terra Duarte" data-i18n-attr="alt:ana_portrait_alt">
+              <img src="/assets/Ana.jpg" width="1170" height="754" loading="lazy" decoding="async" alt="Retrato de Ana Terra Duarte" data-i18n-attr="alt:ana_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Ana Terra Duarte</h3>
@@ -1401,16 +1388,7 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="page-shell footer-row">
-      <p data-i18n="footer_copy">© 2026 NextGen Sustentável. Iniciativa liderada por jovens para democratização do ensino sobre os ODS, liderança jovem e cidadania.</p>
-      <div class="footer-links" aria-label="Links do rodapé" data-i18n-attr="aria-label:footer_links_label">
-        <a href="#sobre" data-i18n="nav_about">Sobre</a>
-        <a href="#metodo" data-i18n="nav_method">Método</a>
-        <a href="#fundadoras" data-i18n="nav_founders">Fundadoras</a>
-      </div>
-    </div>
-  </footer>
+  <SiteFooter />
 
   <script>
     const translations = {
