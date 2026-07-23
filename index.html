@@ -28,7 +28,6 @@
       --green-950: #06251b;
       --green-900: #073826;
       --green-800: #0a4b32;
-      --green-600: #128255;
       --green-500: #20a86b;
       --green-100: #def8ea;
       --green-50: #f1fff6;
@@ -36,12 +35,10 @@
       --pink-500: #f05292;
       --pink-100: #ffe7f1;
       --white: #ffffff;
-      --paper: #fbfffc;
       --line: rgba(6, 37, 27, 0.13);
       --line-strong: rgba(6, 37, 27, 0.24);
       --text: #092d20;
       --muted: #5a7569;
-      --soft: rgba(255, 255, 255, 0.72);
       --shadow: 0 28px 90px rgba(7, 56, 38, 0.13);
     }
 
@@ -184,12 +181,6 @@
       outline: none;
     }
 
-    .nav-actions {
-      align-items: center;
-      display: flex;
-      gap: 8px;
-    }
-
     .language-toggle {
       align-items: center;
       background: rgba(255, 255, 255, 0.72);
@@ -223,7 +214,6 @@
       outline-offset: 2px;
     }
 
-    .nav-cta,
     .button {
       align-items: center;
       border: 1px solid var(--green-950);
@@ -239,7 +229,6 @@
       white-space: nowrap;
     }
 
-    .nav-cta,
     .button.primary {
       background: var(--green-950);
       color: var(--white);
@@ -251,7 +240,6 @@
       color: var(--green-900);
     }
 
-    .nav-cta:hover,
     .button:hover {
       transform: translateY(-1px);
     }
@@ -303,8 +291,7 @@
     }
 
     .eyebrow,
-    .section-kicker,
-    .micro-label {
+    .section-kicker {
       align-items: center;
       color: var(--green-800);
       display: inline-flex;
@@ -323,11 +310,26 @@
     }
 
     .status-dot {
+      animation: status-pulse 1.8s ease-out infinite;
       background: var(--pink-500);
       border-radius: 50%;
       box-shadow: 0 0 0 5px rgba(240, 82, 146, 0.12);
+      flex: 0 0 8px;
       height: 8px;
+      min-height: 8px;
+      min-width: 8px;
       width: 8px;
+    }
+
+    @keyframes status-pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(240, 82, 146, 0.36);
+      }
+
+      70%,
+      100% {
+        box-shadow: 0 0 0 7px rgba(240, 82, 146, 0);
+      }
     }
 
     h1,
@@ -675,8 +677,7 @@
     }
 
     .split-intro h2,
-    .section-heading h2,
-    .cta h2 {
+    .section-heading h2 {
       color: var(--green-950);
       font-size: 48px;
       font-weight: 740;
@@ -910,53 +911,6 @@
       font-size: 0.94rem;
     }
 
-    .cta {
-      background:
-        linear-gradient(90deg, rgba(32, 168, 107, 0.13), rgba(240, 82, 146, 0.14)),
-        rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      margin-bottom: 34px;
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta::after {
-      background:
-        linear-gradient(90deg, rgba(6, 37, 27, 0.07) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(6, 37, 27, 0.07) 1px, transparent 1px);
-      background-size: 40px 40px;
-      content: "";
-      inset: 0;
-      opacity: 0.45;
-      position: absolute;
-    }
-
-    .cta > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta h2 {
-      margin-top: 16px;
-      max-width: 720px;
-    }
-
-    .cta p:not(.section-kicker) {
-      color: var(--muted);
-      font-size: 1.02rem;
-      margin-top: 18px;
-      max-width: 670px;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
     .site-footer {
       border-top: 1px solid var(--line);
       color: var(--muted);
@@ -1089,13 +1043,8 @@
 
       .split-intro h2,
       .section-heading h2,
-      .system-copy h2,
-      .cta h2 {
+      .system-copy h2 {
         font-size: 36px;
-      }
-
-      .cta {
-        padding: 32px 22px;
       }
     }
 
@@ -1110,20 +1059,11 @@
         text-overflow: ellipsis;
       }
 
-      .nav-cta {
-        display: none;
-      }
-
-      .nav-actions {
-        gap: 0;
-      }
-
       h1 {
         font-size: 40px;
       }
 
-      .hero-actions,
-      .cta-actions {
+      .hero-actions {
         flex-direction: column;
         width: 100%;
       }
@@ -1170,6 +1110,10 @@
         scroll-behavior: auto !important;
         transition: none !important;
       }
+
+      .status-dot {
+        animation: none;
+      }
     }
   </style>
 </head>
@@ -1180,7 +1124,7 @@
     <nav class="nav-shell">
       <a class="brand" href="#inicio" aria-label="NextGen Sustentável" data-i18n-attr="aria-label:brand_label">
         <span class="brand-logo" aria-hidden="true">
-          <img src="assets/logo.png" alt="">
+          <img src="assets/logo.png" width="1254" height="1254" alt="">
         </span>
         <span>NextGen Sustentável</span>
       </a>
@@ -1188,14 +1132,10 @@
         <a href="#sobre" data-i18n="nav_about">Sobre</a>
         <a href="#metodo" data-i18n="nav_method">Método</a>
         <a href="#fundadoras" data-i18n="nav_founders">Fundadoras</a>
-        <a href="#participar" data-i18n="nav_participate">Participar</a>
       </div>
-      <div class="nav-actions">
-        <div class="language-toggle" role="group" aria-label="Selecionar idioma" data-i18n-attr="aria-label:language_label">
-          <button class="lang-option is-active" type="button" data-lang-option="pt" aria-pressed="true">PT</button>
-          <button class="lang-option" type="button" data-lang-option="en" aria-pressed="false">EN</button>
-        </div>
-        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfw-noXVRzXfRg6nOIAWglTdbUgjukQ10jMIka65NpI1qmobA/viewform?pli=1" target="_blank" rel="noopener noreferrer" data-i18n="join_us">Junte-se a nós</a>
+      <div class="language-toggle" role="group" aria-label="Selecionar idioma" data-i18n-attr="aria-label:language_label">
+        <button class="lang-option is-active" type="button" data-lang-option="pt" aria-pressed="true">PT</button>
+        <button class="lang-option" type="button" data-lang-option="en" aria-pressed="false">EN</button>
       </div>
     </nav>
   </header>
@@ -1205,7 +1145,7 @@
       <div class="page-shell">
         <div class="hero-content">
           <div class="hero-logo">
-            <img src="assets/logo.png" alt="Logo do NextGen Sustentável" data-i18n-attr="alt:logo_alt">
+            <img src="assets/logo.png" width="1254" height="1254" alt="Logo do NextGen Sustentável" data-i18n-attr="alt:logo_alt">
           </div>
           <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-i18n="hero_eyebrow">Iniciativa liderada por jovens para democratização do ensino sobre os ODS, liderança jovem e cidadania</span></p>
           <h1 data-i18n="hero_title">NextGen Sustentável</h1>
@@ -1218,10 +1158,10 @@
           </div>
           <div class="founder-strip" aria-label="Cofundadoras do NextGen Sustentável" data-i18n-attr="aria-label:founder_strip_label">
             <div class="founder-avatars" aria-hidden="true">
-              <img src="assets/Helena.jpg" alt="">
-              <img src="assets/Isadora.jpg" alt="">
-              <img src="assets/Carolina.jpg" alt="">
-              <img src="assets/Ana.jpg" alt="">
+              <img src="assets/Helena.jpg" width="1546" height="1600" decoding="async" alt="">
+              <img src="assets/Isadora.jpg" width="1066" height="1600" decoding="async" alt="">
+              <img src="assets/Carolina.jpg" width="2160" height="2880" decoding="async" alt="">
+              <img src="assets/Ana.jpg" width="1170" height="754" decoding="async" alt="">
             </div>
             <span data-i18n="founder_strip_text">Cofundado por Helena, Isadora, Carolina e Ana</span>
           </div>
@@ -1313,7 +1253,7 @@
           <h2 data-i18n="about_title">ODS mais próximos de quem vai construir o futuro.</h2>
           <div class="copy-stack">
             <p data-i18n="about_p1">
-              O NextGen Sustentável é uma iniciativa liderada por jovens dentro do guarda-chuva do UN MGCY, que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.
+              O NextGen Sustentável é uma iniciativa liderada por jovens que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.
             </p>
             <p data-i18n="about_p2">
               O projeto incentiva a participação ativa na construção de um futuro mais justo, inclusivo e sustentável, aproximando sustentabilidade, cidadania e ação comunitária.
@@ -1322,7 +1262,7 @@
               A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.
             </p>
             <figure class="ods-palette">
-              <img src="assets/Palette.png" loading="lazy" alt="Roda colorida dos Objetivos de Desenvolvimento Sustentável" data-i18n-attr="alt:ods_palette_alt">
+              <img src="assets/Palette.png" width="1747" height="1240" loading="lazy" decoding="async" alt="Roda colorida dos Objetivos de Desenvolvimento Sustentável" data-i18n-attr="alt:ods_palette_alt">
               <figcaption data-i18n="ods_palette_caption">Os 17 ODS como guia visual</figcaption>
             </figure>
           </div>
@@ -1414,7 +1354,7 @@
         <div class="team-grid">
           <article class="founder-card helena">
             <div class="founder-photo">
-              <img src="assets/Helena.jpg" loading="lazy" alt="Retrato de Helena Marillac de Azevedo Rondon" data-i18n-attr="alt:helena_portrait_alt">
+              <img src="assets/Helena.jpg" width="1546" height="1600" loading="lazy" decoding="async" alt="Retrato de Helena Marillac de Azevedo Rondon" data-i18n-attr="alt:helena_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Helena Marillac de Azevedo Rondon</h3>
@@ -1425,7 +1365,7 @@
 
           <article class="founder-card isadora">
             <div class="founder-photo">
-              <img src="assets/Isadora.jpg" loading="lazy" alt="Retrato de Isadora Meira Lima Gonçalves de Medeiros" data-i18n-attr="alt:isadora_portrait_alt">
+              <img src="assets/Isadora.jpg" width="1066" height="1600" loading="lazy" decoding="async" alt="Retrato de Isadora Meira Lima Gonçalves de Medeiros" data-i18n-attr="alt:isadora_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Isadora Meira Lima Gonçalves de Medeiros</h3>
@@ -1436,7 +1376,7 @@
 
           <article class="founder-card carolina">
             <div class="founder-photo">
-              <img src="assets/Carolina.jpg" loading="lazy" alt="Retrato de Carolina Damasio" data-i18n-attr="alt:carolina_portrait_alt">
+              <img src="assets/Carolina.jpg" width="2160" height="2880" loading="lazy" decoding="async" alt="Retrato de Carolina Damasio" data-i18n-attr="alt:carolina_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Carolina Damasio</h3>
@@ -1447,7 +1387,7 @@
 
           <article class="founder-card ana">
             <div class="founder-photo">
-              <img src="assets/Ana.jpg" loading="lazy" alt="Retrato de Ana Terra Duarte" data-i18n-attr="alt:ana_portrait_alt">
+              <img src="assets/Ana.jpg" width="1170" height="754" loading="lazy" decoding="async" alt="Retrato de Ana Terra Duarte" data-i18n-attr="alt:ana_portrait_alt">
             </div>
             <div class="founder-copy">
               <h3>Ana Terra Duarte</h3>
@@ -1459,21 +1399,6 @@
       </div>
     </section>
 
-    <section class="section" id="participar">
-      <div class="page-shell">
-        <div class="cta">
-          <p class="section-kicker" data-i18n="join_kicker">05 / Participe</p>
-          <h2 data-i18n="join_title">Leve os ODS para onde a juventude já está.</h2>
-          <p data-i18n="join_copy">
-            O NextGen Sustentável existe para aproximar a agenda global de estudantes, escolas, comunidades e espaços de decisão. A próxima etapa é ampliar conversas, parcerias e experiências de aprendizagem.
-          </p>
-          <div class="cta-actions">
-            <a class="button primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfw-noXVRzXfRg6nOIAWglTdbUgjukQ10jMIka65NpI1qmobA/viewform?pli=1" target="_blank" rel="noopener noreferrer" data-i18n="join_us">Junte-se a nós</a>
-            <a class="button secondary" href="#inicio" data-i18n="back_to_top">Voltar ao início</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -1503,8 +1428,6 @@
         nav_about: "Sobre",
         nav_method: "Método",
         nav_founders: "Fundadoras",
-        nav_participate: "Participar",
-        join_us: "Junte-se a nós",
         hero_eyebrow: "Iniciativa liderada por jovens para democratização do ensino sobre os ODS, liderança jovem e cidadania",
         hero_title: "NextGen Sustentável",
         hero_copy: "Uma iniciativa liderada por jovens que torna os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
@@ -1544,7 +1467,7 @@
         act: "Agir",
         about_kicker: "01 / Sobre nós",
         about_title: "ODS mais próximos de quem vai construir o futuro.",
-        about_p1: "O NextGen Sustentável é uma iniciativa liderada por jovens dentro do guarda-chuva do UN MGCY, que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
+        about_p1: "O NextGen Sustentável é uma iniciativa liderada por jovens que busca tornar os Objetivos de Desenvolvimento Sustentável mais acessíveis para crianças, adolescentes e jovens.",
         about_p2: "O projeto incentiva a participação ativa na construção de um futuro mais justo, inclusivo e sustentável, aproximando sustentabilidade, cidadania e ação comunitária.",
         about_p3: "A iniciativa nasceu com a missão de transformar a educação sobre sustentabilidade e cidadania em algo prático, inspirador e acessível, especialmente para estudantes da rede pública e comunidades em situação de vulnerabilidade.",
         ods_palette_alt: "Roda colorida dos Objetivos de Desenvolvimento Sustentável",
@@ -1586,10 +1509,6 @@
         isadora_bio: "Formada em Direito, cofundadora da NextGen Sustentável e pesquisadora de Direito Internacional. Busca desenvolver uma carreira voltada à promoção do desenvolvimento sustentável, da proteção do patrimônio cultural e do fortalecimento dos direitos humanos na luta pela reforma da governança internacional, a partir da participação da juventude do sul global em processos decisórios.",
         carolina_bio: "Estudante de Relações Internacionais, cofundadora do NextGen Sustentável e defensora da participação significativa da juventude na agenda do desenvolvimento sustentável. Atua com educação para os ODS, governança global e políticas públicas, representando jovens brasileiros em iniciativas e fóruns nacionais e internacionais.",
         ana_bio: "Ana Terra Duarte é estudante do ensino médio do curso técnico em Química e cofundadora do projeto NextGen Sustentável. Comprometida com o aprendizado e com a busca por soluções que contribuam para a sociedade, participa de projetos acadêmicos e voluntários que fortalecem seu interesse por inovação, sustentabilidade e desenvolvimento social. Acredita que a educação, a dedicação e a colaboração são fundamentais para construir um futuro mais consciente e transformador.",
-        join_kicker: "05 / Participe",
-        join_title: "Leve os ODS para onde a juventude já está.",
-        join_copy: "O NextGen Sustentável existe para aproximar a agenda global de estudantes, escolas, comunidades e espaços de decisão. A próxima etapa é ampliar conversas, parcerias e experiências de aprendizagem.",
-        back_to_top: "Voltar ao início",
         footer_copy: "© 2026 NextGen Sustentável. Iniciativa liderada por jovens para democratização do ensino sobre os ODS, liderança jovem e cidadania.",
         footer_links_label: "Links do rodapé"
       },
@@ -1607,9 +1526,7 @@
         nav_about: "About",
         nav_method: "Method",
         nav_founders: "Founders",
-        nav_participate: "Join",
-        join_us: "Join us",
-        hero_eyebrow: "Youth-led initiative under UN MGCY",
+        hero_eyebrow: "Youth-led initiative advancing SDG education, youth leadership, and citizenship",
         hero_title: "NextGen Sustentável",
         hero_copy: "A youth-led initiative making the Sustainable Development Goals more accessible to children, adolescents, and young people.",
         hero_primary: "Explore the project",
@@ -1648,7 +1565,7 @@
         act: "Act",
         about_kicker: "01 / About us",
         about_title: "SDGs closer to the people building the future.",
-        about_p1: "NextGen Sustentável is a youth-led initiative under the UN MGCY umbrella that seeks to make the Sustainable Development Goals more accessible to children, adolescents, and young people.",
+        about_p1: "NextGen Sustentável is a youth-led initiative that seeks to make the Sustainable Development Goals more accessible to children, adolescents, and young people.",
         about_p2: "The project encourages active participation in building a fairer, more inclusive, and sustainable future by connecting sustainability, citizenship, and community action.",
         about_p3: "The initiative was created with the mission of transforming education on sustainability and citizenship into something practical, inspiring, and accessible, especially for public school students and communities in vulnerable situations.",
         ods_palette_alt: "Color wheel of the Sustainable Development Goals",
@@ -1690,11 +1607,7 @@
         isadora_bio: "A Law graduate, cofounder of NextGen Sustentável, and International Law researcher. She seeks to build a career focused on promoting sustainable development, protecting cultural heritage, and strengthening human rights in the fight to reform international governance through the participation of Global South youth in decision-making processes.",
         carolina_bio: "An International Relations student, cofounder of NextGen Sustentável, and advocate for meaningful youth participation in the sustainable development agenda. She works with SDG education, global governance, and public policy, representing Brazilian youth in national and international initiatives and forums.",
         ana_bio: "Ana Terra Duarte is a high school student in a technical Chemistry program and a cofounder of the NextGen Sustentável project. Committed to learning and finding solutions that benefit society, she takes part in academic and volunteer projects that strengthen her interest in innovation, sustainability, and social development. She believes that education, dedication, and collaboration are essential to building a more conscious and transformative future.",
-        join_kicker: "05 / Join",
-        join_title: "Bring the SDGs to where youth already are.",
-        join_copy: "NextGen Sustentável exists to bring the global agenda closer to students, schools, communities, and decision-making spaces. The next step is to expand conversations, partnerships, and learning experiences.",
-        back_to_top: "Back to top",
-        footer_copy: "© 2026 NextGen Sustentável. Youth-led initiative under UN MGCY.",
+        footer_copy: "© 2026 NextGen Sustentável. Youth-led initiative advancing SDG education, youth leadership, and citizenship.",
         footer_links_label: "Footer links"
       }
     };
